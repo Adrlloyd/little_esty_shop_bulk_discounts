@@ -70,4 +70,24 @@ describe "bulk discounts index" do
       expect(page).to_not have_button("Delete Discount: #{@bd3.id}")
     end
   end
+
+  it 'has next three holidays' do
+    visit merchant_bulk_discounts_path(@merchant1)
+    
+    within("#holiday") do
+      expect(page).to have_content("Washington's Birthday")
+      expect(page).to have_content("Good Friday")
+      expect(page).to have_content("Memorial Day")
+    end
+  end
+
+  it 'has next three holidays date' do
+    visit merchant_bulk_discounts_path(@merchant1)
+    
+    within("#holiday") do
+      expect(page).to have_content("2023-02-20")
+      expect(page).to have_content("2023-04-07")
+      expect(page).to have_content("2023-05-29")
+    end
+  end
 end
