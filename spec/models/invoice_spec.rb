@@ -40,5 +40,9 @@ RSpec.describe Invoice, type: :model do
     it '#merchant_discounted_revenue' do
       expect(@invoice_1.merchant_discounted_revenue(@merchant1)).to eq(77.5)
     end
+
+    it '#total_discounted_revenue' do
+      expect(@invoice_1.total_discounted_revenue).to eq(77.5)
+    end
   end
 end
